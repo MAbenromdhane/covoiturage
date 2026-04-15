@@ -1,52 +1,50 @@
-# 🚗 Carpooling App - Roadmap & Tasks
+# 🚗 Projet Covoiturage - Suivi des Tâches
 
-Welcome! This file tracks our progress on the Carpooling App.
-
----
-
-## 👥 Work Split
-- **Frontend (Android)**: @USER (Android Layouts, Activities, UI/UX)
-- **Backend (PHP/SQL)**: @FRIEND (APIs, Database, Business Logic)
+Ce fichier permet de suivre l'avancement du projet étape par étape. Chaque tâche doit être cochée une fois terminée.
 
 ---
 
-## 🛠 Project Phases
-
-### Phase 1: Authentication & Identity ✅
-- [x] Initial Project Structure
-- [x] database Schema (SQL)
-- [x] Login Activity & API
-- [x] Registration Activity & API
-- [x] Session Management
-
-### Phase 2: User Dashboards 🟡 (Next)
-- [ ] Create `PassengerDashboardActivity` - **@USER**
-- [ ] Create `DriverDashboardActivity` - **@USER**
-- [ ] Add logout functionality - **@USER**
-- [ ] Backend: Get user profile info - **@FRIEND**
-
-### Phase 3: Ride Posting (Driver Flow) ⚪
-- [ ] `PostRideActivity` (Form to offer a ride) - **@USER**
-- [ ] API: `create_ride.php` - **@FRIEND**
-- [ ] API: `get_driver_rides.php` - **@FRIEND**
-
-### Phase 4: Finding Rides (Passenger Flow) ⚪
-- [ ] `FindRideActivity` (Search and list view) - **@USER**
-- [ ] API: `search_rides.php` - **@FRIEND**
-- [ ] `RideDetailsActivity` - **@USER**
-
-### Phase 5: Booking & Requests ⚪
-- [ ] Button to "Request Seat" - **@USER**
-- [ ] API: `book_seat.php` - **@FRIEND**
-- [ ] Driver view to "Accept/Reject" requests - **@USER** & **@FRIEND**
-
-### Phase 6: Final Polish ⚪
-- [ ] App Icon and Branding
-- [ ] Input Validation improvements
-- [ ] Error handling & Offline support
+## 👥 Répartition
+- **USER**: Développement de l'application Android
+- **FRIEND**: Développement du Backend (API & Base de données)
 
 ---
 
-## 📝 How to use this file
-1. Every time a step is done, change `[ ]` to `[x]`.
-2. Commit and push the change to GitHub so everyone stays updated.
+## 📋 Liste des Tâches
+
+### Phase 1 : Système d'Authentification (En cours)
+- [ ] Interface d'Inscription (Layout XML) - **USER**
+- [ ] Logique d'Inscription (Validation & Retrofit) - **USER**
+- [ ] Création de la table `users` (SQL) - **FRIEND**
+- [ ] API d'Inscription (`register.php`) - **FRIEND**
+- [ ] Interface de Connexion (Layout XML) - **USER**
+- [ ] Logique de Connexion (Retrofit & Session) - **USER**
+- [ ] API de Connexion (`login.php`) - **FRIEND**
+
+### Phase 2 : Tableaux de Bord (Dashboard)
+- [ ] Interface Dashbord Passager - **USER**
+- [ ] Interface Dashboard Conducteur - **USER**
+- [ ] Logique de redirection selon le rôle - **USER**
+- [ ] API de profil utilisateur - **FRIEND**
+
+### Phase 3 : Publication de Trajets (Conducteur)
+- [ ] Formulaire de publication (Départ, Arrivée, Prix, Places) - **USER**
+- [ ] API de création de trajet (`create_ride.php`) - **FRIEND**
+- [ ] Liste des trajets publiés par le conducteur - **USER**
+- [ ] API pour récupérer les trajets - **FRIEND**
+
+### Phase 4 : Recherche et Réservation (Passager)
+- [ ] Barre de recherche (Filtres source/destination) - **USER**
+- [ ] API de recherche de trajets - **FRIEND**
+- [ ] Détails d'un trajet et bouton de réservation - **USER**
+- [ ] API de réservation (`book_seat.php`) - **FRIEND**
+
+### Phase 5 : Finalisation
+- [ ] Gestion des erreurs et messages utilisateur - **USER & FRIEND**
+- [ ] Icône de l'application et Design - **USER**
+- [ ] Tests finaux et Déploiement - **USER & FRIEND**
+
+---
+
+## 📝 Mode d'emploi
+Modifiez ce fichier sur GitHub en remplaçant `[ ]` par `[x]` quand vous terminez une tâche, puis validez le commit.

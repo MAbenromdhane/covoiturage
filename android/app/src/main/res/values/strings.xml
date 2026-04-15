@@ -5,4 +5,12 @@
     <string name="password_hint">Mot de passe</string>
     <string name="login_button">Se connecter</string>
     <string name="register_link">Pas encore de compte ? S\'inscrire</string>
+    <string name="register_title">Inscription</string>
+    <string name="name_hint">Nom Complet</string>
+    <string name="confirm_password_hint">Confirmer le mot de passe</string>
+    <string name="role_label">Je suis un :</string>
+    <string name="role_passenger">Passager</string>
+    <string name="role_driver">Conducteur</string>
+    <string name="register_button">Créer un compte</string>
+    <string name="login_link">Déjà inscrit ? Se connecter</string>
 </resources>

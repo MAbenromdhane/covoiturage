@@ -14,6 +14,15 @@ public interface ApiService {
         @Field("email") String email,
         @Field("password") String password
     );
+
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<ApiResponse> registerUser(
+        @Field("nom") String name,
+        @Field("email") String email,
+        @Field("password") String password,
+        @Field("role") String role
+    );
     
     // Les autres appels seront ajoutés ici
 }
