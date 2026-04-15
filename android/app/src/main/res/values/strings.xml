@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CarpoolingApp</string>
+    <string name="login_title">Bienvenue</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="login_button">Se connecter</string>
+    <string name="register_link">Pas encore de compte ? S\'inscrire</string>
+</resources>

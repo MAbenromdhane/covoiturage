@@ -1,0 +1,17 @@
+# Android
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# PHP / Backend
+backend/config/db_local.php
+*.log
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
