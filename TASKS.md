@@ -7,18 +7,18 @@ Ce fichier permet de suivre l'avancement du projet étape par étape. Chaque tâ
 ## 📋 Liste des Tâches
 
 ### Phase 1 : Système d'Authentification (En cours)
-- [ ] Interface d'Inscription (Layout XML)
-- [ ] Logique d'Inscription (Validation & Retrofit)
-- [ ] Création de la table `users` (SQL)
-- [ ] API d'Inscription (`register.php`)
-- [ ] Interface de Connexion (Layout XML)
-- [ ] Logique de Connexion (Retrofit & Session)
-- [ ] API de Connexion (`login.php`)
+- [x] Interface d'Inscription (Layout XML)
+- [x] Logique d'Inscription (Validation & Retrofit)
+- [x] Création de la table `users` (SQL)
+- [x] API d'Inscription (`register.php`)
+- [x] Interface de Connexion (Layout XML)
+- [x] Logique de Connexion (Retrofit & Session)
+- [x] API de Connexion (`login.php`)
 
 ### Phase 2 : Tableaux de Bord (Dashboard)
 - [ ] Interface Dashbord Passager
 - [ ] Interface Dashboard Conducteur
-- [ ] Logique de redirection selon le rôle
+- [x] Logique de redirection selon le rôle
 - [ ] API de profil utilisateur
 
 ### Phase 3 : Publication de Trajets (Conducteur)
