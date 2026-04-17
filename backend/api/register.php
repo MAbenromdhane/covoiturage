@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 include_once '../config/db.php';
 
-// Support JSON body or Form data
+// Récupération des données
 $data = json_decode(file_get_contents("php://input"));
 if (isset($data->nom)) {
     $nom = $data->nom;
@@ -26,9 +26,8 @@ if (isset($data->nom)) {
 }
 
 if (!empty($nom) && !empty($email) && !empty($password) && !empty($role)) {
-    
     // Vérifier si l'email existe déjà
-    $query_check = "SELECT id FROM users WHERE email = :email LIMIT 1";
+    $query_check = "SELECT id FROM users WHERE email = :email";
     $stmt_check = $conn->prepare($query_check);
     $stmt_check->bindParam(":email", $email);
     $stmt_check->execute();
@@ -38,25 +37,27 @@ if (!empty($nom) && !empty($email) && !empty($password) && !empty($role)) {
         exit;
     }
 
-    // Préparation de l'insertion
+    // Hashage du mot de passe
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
     $query = "INSERT INTO users (nom, email, password, role) VALUES (:nom, :email, :password, :role)";
     $stmt = $conn->prepare($query);
 
-    // Nettoyage et Hachage
+    // Nettoyage
     $nom = htmlspecialchars(strip_tags($nom));
     $email = htmlspecialchars(strip_tags($email));
     $role = htmlspecialchars(strip_tags($role));
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
+    // Bindings
     $stmt->bindParam(":nom", $nom);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $hashed_password);
     $stmt->bindParam(":role", $role);
 
     if ($stmt->execute()) {
-        echo json_encode(array("success" => true, "message" => "Inscription terminée. Vous pouvez vous connecter."));
+        echo json_encode(array("success" => true, "message" => "Utilisateur créé avec succès."));
     } else {
-        echo json_encode(array("success" => false, "message" => "Erreur lors de l'enregistrement."));
+        echo json_encode(array("success" => false, "message" => "Impossible de créer l'utilisateur."));
     }
 } else {
     echo json_encode(array("success" => false, "message" => "Veuillez remplir tous les champs."));

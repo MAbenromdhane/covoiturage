@@ -2,7 +2,6 @@ package com.example.carpooling.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +24,11 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText etName, etEmail, etPassword, etConfirmPassword;
-    private RadioGroup rgRole;
+    private EditText etName, etEmail, etPassword;
+    private RadioGroup radioGroupRole;
+    private RadioButton radioPassager, radioConducteur;
     private Button btnRegister;
-    private TextView tvLogin;
+    private TextView tvLoginRedirect;
     private ProgressBar progressBar;
     private ApiService apiService;
 
@@ -40,13 +40,14 @@ public class RegisterActivity extends AppCompatActivity {
         apiService = ApiClient.getClient().create(ApiService.class);
 
         etName = findViewById(R.id.etName);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
-        etConfirmPassword = findViewById(R.id.etConfirmPassword);
-        rgRole = findViewById(R.id.rgRole);
+        etEmail = findViewById(R.id.etEmailReg);
+        etPassword = findViewById(R.id.etPasswordReg);
+        radioGroupRole = findViewById(R.id.radioGroupRole);
+        radioPassager = findViewById(R.id.radioPassager);
+        radioConducteur = findViewById(R.id.radioConducteur);
         btnRegister = findViewById(R.id.btnRegister);
-        tvLogin = findViewById(R.id.tvLogin);
-        progressBar = findViewById(R.id.progressBar);
+        tvLoginRedirect = findViewById(R.id.tvLoginRedirect);
+        progressBar = findViewById(R.id.progressBarReg);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,10 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        tvLogin.setOnClickListener(new View.OnClickListener() {
+        tvLoginRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Retour au login
+                finish(); // Revient à LoginActivity
             }
         });
     }
@@ -67,34 +68,16 @@ public class RegisterActivity extends AppCompatActivity {
         String name = etName.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
-        String confirmPassword = etConfirmPassword.getText().toString().trim();
         
-        // Récupération du rôle
-        int selectedRoleId = rgRole.getCheckedRadioButtonId();
-        RadioButton rbSelected = findViewById(selectedRoleId);
-        String role = "passager";
-        if (rbSelected != null && rbSelected.getId() == R.id.rbDriver) {
+        int selectedRoleId = radioGroupRole.getCheckedRadioButtonId();
+        String role = "passager"; // valeur par defaut
+        
+        if (selectedRoleId == R.id.radioConducteur) {
             role = "conducteur";
         }
 
-        // Validation
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this, "Veuillez entrer une adresse email valide", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (password.length() < 6) {
-            Toast.makeText(this, "Le mot de passe doit contenir au moins 6 caractères", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!password.equals(confirmPassword)) {
-            Toast.makeText(this, "Les mots de passe ne correspondent pas", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -110,10 +93,14 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (response.isSuccessful() && response.body() != null) {
                     ApiResponse apiResponse = response.body();
-                    Toast.makeText(RegisterActivity.this, apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     
                     if (apiResponse.isSuccess()) {
-                        finish(); // Retour au login après succès
+                        Toast.makeText(RegisterActivity.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
+                        // Retourne au login car l'utilisateur devra se connecter
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(RegisterActivity.this, "Erreur serveur", Toast.LENGTH_SHORT).show();
