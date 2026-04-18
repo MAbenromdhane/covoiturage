@@ -1,9 +1,9 @@
-CREATE DATABASE IF NOT EXISTS carpooling_db;
-USE carpooling_db;
+CREATE DATABASE IF NOT EXISTS covoiturage_db;
+USE covoiturage_db;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role ENUM('passager', 'conducteur') NOT NULL,

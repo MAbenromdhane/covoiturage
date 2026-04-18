@@ -10,13 +10,13 @@ include_once '../config/db.php';
 
 // Récupération des données
 $data = json_decode(file_get_contents("php://input"));
-if (isset($data->nom)) {
-    $nom = $data->nom;
+if (isset($data->name)) {
+    $name = $data->name;
     $email = $data->email;
     $password = $data->password;
     $role = $data->role;
-} else if (isset($_POST['nom'])) {
-    $nom = $_POST['nom'];
+} else if (isset($_POST['name'])) {
+    $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $role = $_POST['role'];
@@ -25,7 +25,8 @@ if (isset($data->nom)) {
     exit;
 }
 
-if (!empty($nom) && !empty($email) && !empty($password) && !empty($role)) {
+if (!empty($name) && !empty($email) && !empty($password) && !empty($role)) {
+    
     // Vérifier si l'email existe déjà
     $query_check = "SELECT id FROM users WHERE email = :email";
     $stmt_check = $conn->prepare($query_check);
@@ -37,19 +38,19 @@ if (!empty($nom) && !empty($email) && !empty($password) && !empty($role)) {
         exit;
     }
 
-    // Hashage du mot de passe
+    // Hachage du mot de passe
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $query = "INSERT INTO users (nom, email, password, role) VALUES (:nom, :email, :password, :role)";
+    // Préparation de l'insertion
+    $query = "INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)";
     $stmt = $conn->prepare($query);
 
     // Nettoyage
-    $nom = htmlspecialchars(strip_tags($nom));
+    $name = htmlspecialchars(strip_tags($name));
     $email = htmlspecialchars(strip_tags($email));
     $role = htmlspecialchars(strip_tags($role));
 
-    // Bindings
-    $stmt->bindParam(":nom", $nom);
+    $stmt->bindParam(":name", $name);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $hashed_password);
     $stmt->bindParam(":role", $role);

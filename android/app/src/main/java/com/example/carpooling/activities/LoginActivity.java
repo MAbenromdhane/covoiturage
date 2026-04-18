@@ -118,17 +118,13 @@ public class LoginActivity extends AppCompatActivity {
     private void redirectUser(String role) {
         Intent intent;
         if ("conducteur".equals(role)) {
-            // Remplacer par DriverDashboardActivity une fois créé
-            // intent = new Intent(this, DriverDashboardActivity.class);
+            intent = new Intent(this, DriverDashboardActivity.class);
             Toast.makeText(this, "Redirection Conducteur", Toast.LENGTH_SHORT).show();
-            return;
         } else {
-            // Remplacer par PassengerDashboardActivity une fois créé
-            // intent = new Intent(this, PassengerDashboardActivity.class);
+            intent = new Intent(this, PassengerDashboardActivity.class);
             Toast.makeText(this, "Redirection Passager", Toast.LENGTH_SHORT).show();
-            return;
         }
-        // startActivity(intent);
-        // finish();
+        startActivity(intent);
+        finish();
     }
 }

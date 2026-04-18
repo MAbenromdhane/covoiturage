@@ -1,16 +1,20 @@
 <resources>
-    <string name="app_name">CarpoolingApp</string>
-    <string name="login_title">Bienvenue</string>
-    <string name="email_hint">Email</string>
+    <string name="app_name">Covoiturage</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">Créer un compte</string>
+    <string name="name_hint">Nom complet</string>
+    <string name="email_hint">Adresse email</string>
     <string name="password_hint">Mot de passe</string>
-    <string name="login_button">Se connecter</string>
-    <string name="register_link">Pas encore de compte ? S\'inscrire</string>
-    <string name="register_title">Inscription</string>
-    <string name="name_hint">Nom Complet</string>
     <string name="confirm_password_hint">Confirmer le mot de passe</string>
     <string name="role_label">Je suis un :</string>
     <string name="role_passenger">Passager</string>
     <string name="role_driver">Conducteur</string>
-    <string name="register_button">Créer un compte</string>
-    <string name="login_link">Déjà inscrit ? Se connecter</string>
+    <string name="register_button">S\'inscrire</string>
+    <string name="login_link">Déjà un compte ? Connectez-vous</string>
+
+    <!-- Login Activity -->
+    <string name="login_title">Connexion</string>
+    <string name="login_button">Se connecter</string>
+    <string name="register_link">Pas de compte ? Inscrivez-vous</string>
 </resources>

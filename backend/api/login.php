@@ -23,7 +23,7 @@ if (isset($data->email)) {
 }
 
 if (!empty($email) && !empty($password)) {
-    $query = "SELECT id, nom, email, password, role FROM users WHERE email = :email LIMIT 1";
+    $query = "SELECT id, name, email, password, role FROM users WHERE email = :email LIMIT 1";
     $stmt = $conn->prepare($query);
     
     // Nettoyer l'email
