@@ -35,6 +35,10 @@
             android:name=".activities.DriverDashboardActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activities.CreateRideActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

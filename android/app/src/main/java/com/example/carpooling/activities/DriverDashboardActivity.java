@@ -58,8 +58,8 @@ public class DriverDashboardActivity extends AppCompatActivity {
 
         // Setup create ride button
         createRideButton.setOnClickListener(v -> {
-            // TODO: Navigate to CreateRideActivity
-            Toast.makeText(DriverDashboardActivity.this, "Create Ride clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DriverDashboardActivity.this, CreateRideActivity.class);
+            startActivity(intent);
         });
 
         // Setup view my rides button

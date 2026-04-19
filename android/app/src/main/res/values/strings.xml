@@ -17,4 +17,40 @@
     <string name="login_title">Connexion</string>
     <string name="login_button">Se connecter</string>
     <string name="register_link">Pas de compte ? Inscrivez-vous</string>
+    
+    <!-- Create Ride Activity -->
+    <string name="create_ride_title">Proposer un Trajet</string>
+    <string name="departure_label">Départ</string>
+    <string name="destination_label">Arrivée</string>
+    <string name="date_hint">Sélectionner la date</string>
+    <string name="time_hint">Sélectionner l\'heure</string>
+    <string name="comments_hint">Commentaires (Optionnel)</string>
+    <string name="post_ride_button">Publier le Trajet</string>
+
+    <string-array name="tunisia_states">
+        <item>Ariana</item>
+        <item>Béja</item>
+        <item>Ben Arous</item>
+        <item>Bizerte</item>
+        <item>Gabès</item>
+        <item>Gafsa</item>
+        <item>Jendouba</item>
+        <item>Kairouan</item>
+        <item>Kasserine</item>
+        <item>Kébili</item>
+        <item>Le Kef</item>
+        <item>Mahdia</item>
+        <item>La Manouba</item>
+        <item>Médenine</item>
+        <item>Monastir</item>
+        <item>Nabeul</item>
+        <item>Sfax</item>
+        <item>Sidi Bouzid</item>
+        <item>Siliana</item>
+        <item>Sousse</item>
+        <item>Tataouine</item>
+        <item>Tozeur</item>
+        <item>Tunis</item>
+        <item>Zaghouan</item>
+    </string-array>
 </resources>
