@@ -6,8 +6,8 @@ public class User {
     @SerializedName("id")
     private int id;
     
-    @SerializedName("nom")
-    private String nom;
+    @SerializedName("name")
+    private String name;
     
     @SerializedName("email")
     private String email;
@@ -16,7 +16,7 @@ public class User {
     private String role; // "passager" ou "conducteur"
 
     public int getId() { return id; }
-    public String getNom() { return nom; }
+    public String getName() { return name; }
     public String getEmail() { return email; }
     public String getRole() { return role; }
 }

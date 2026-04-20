@@ -83,6 +83,42 @@
             android:textColor="@color/textPrimary"
             android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
 
+        <!-- Price -->
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prix (DT)"
+            android:inputType="numberDecimal"
+            android:padding="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"/>
+
+        <!-- Places -->
+        <EditText
+            android:id="@+id/etPlaces"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de places"
+            android:inputType="number"
+            android:padding="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"/>
+
+        <!-- Contact -->
+        <EditText
+            android:id="@+id/etContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numéro de contact"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"/>
+
         <!-- Comments -->
         <EditText
             android:id="@+id/etComments"
@@ -90,7 +126,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/comments_hint"
             android:inputType="textMultiLine"
-            android:lines="4"
+            android:lines="3"
             android:gravity="top|start"
             android:padding="16dp"
             android:background="@drawable/edittext_background"

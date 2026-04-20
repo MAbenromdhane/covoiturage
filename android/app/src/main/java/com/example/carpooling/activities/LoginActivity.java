@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         // Sauvegarder la session
                         sessionManager.createLoginSession(
                                 apiResponse.getUser().getId(),
+                                apiResponse.getUser().getName(),
                                 apiResponse.getUser().getRole()
                         );
                         

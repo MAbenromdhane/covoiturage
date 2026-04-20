@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_name VARCHAR(100) NOT NULL references users(name),
     type ENUM('offre', 'demande') NOT NULL,
     depart VARCHAR(150) NOT NULL,
     arrivee VARCHAR(150) NOT NULL,
@@ -20,7 +20,16 @@ CREATE TABLE posts (
     prix DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     places INT NOT NULL DEFAULT 1,
     contact VARCHAR(20) NOT NULL,
+    description TEXT,
     statut ENUM('actif', 'complet', 'expire', 'supprime') NOT NULL DEFAULT 'actif',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ride_id INT NOT NULL,
+    passenger_name VARCHAR(100) NOT NULL,
+    status ENUM('en_attente', 'confirme', 'annule') NOT NULL DEFAULT 'en_attente',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (ride_id) REFERENCES posts(id) ON DELETE CASCADE
 );

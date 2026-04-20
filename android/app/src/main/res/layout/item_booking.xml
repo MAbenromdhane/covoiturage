@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvPassengerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nom du Passager"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPassengerPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Téléphone: 55 123 456"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:id="@+id/tvRideDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pour le trajet: Tunis ➔ Sousse"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvRideDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Date: 20/04/2024 18:00"
+            android:textSize="12sp"
+            android:textColor="#757575" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

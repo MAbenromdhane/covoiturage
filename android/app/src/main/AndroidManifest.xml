@@ -39,6 +39,14 @@
             android:name=".activities.CreateRideActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activities.MyRidesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.RideRequestsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

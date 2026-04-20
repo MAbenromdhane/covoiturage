@@ -16,22 +16,22 @@ Ce fichier permet de suivre l'avancement du projet étape par étape. Chaque tâ
 - [x] API de Connexion (`login.php`)
 
 ### Phase 2 : Tableaux de Bord (Dashboard)
-- [ ] Interface Dashbord Passager
-- [ ] Interface Dashboard Conducteur
-- [ ] Logique de redirection selon le rôle
-- [ ] API de profil utilisateur
+- [x] Interface Dashbord Passager
+- [x] Interface Dashboard Conducteur
+- [x] Logique de redirection selon le rôle
+- [x] API de profil utilisateur
 
 ### Phase 3 : Publication de Trajets (Conducteur)
-- [ ] Formulaire de publication (Départ, Arrivée, Prix, Places)
-- [ ] API de création de trajet (`create_ride.php`)
-- [ ] Liste des trajets publiés par le conducteur
-- [ ] API pour récupérer les trajets
+- [x] Formulaire de publication (Départ, Arrivée, Prix, Places)
+- [x] API de création de trajet (`create_ride.php`)
+- [x] Liste des trajets publiés par le conducteur
+- [x] API pour récupérer les trajets
 
 ### Phase 4 : Recherche et Réservation (Passager)
-- [ ] Barre de recherche (Filtres source/destination)
-- [ ] API de recherche de trajets
-- [ ] Détails d'un trajet et bouton de réservation
-- [ ] API de réservation (`book_seat.php`)
+- [x] Barre de recherche (Filtres source/destination)
+- [x] API de recherche de trajets
+- [x] Détails d'un trajet et bouton de réservation
+- [x] API de réservation (`book_seat.php`)
 
 ### Phase 5 : Finalisation
 - [ ] Gestion des erreurs et messages utilisateur

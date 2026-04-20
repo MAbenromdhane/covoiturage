@@ -64,14 +64,14 @@ public class DriverDashboardActivity extends AppCompatActivity {
 
         // Setup view my rides button
         viewMyRidesButton.setOnClickListener(v -> {
-            // TODO: Navigate to MyRidesActivity
-            Toast.makeText(DriverDashboardActivity.this, "View My Rides clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DriverDashboardActivity.this, MyRidesActivity.class);
+            startActivity(intent);
         });
 
         // Setup view requests button
         viewRequestsButton.setOnClickListener(v -> {
-            // TODO: Navigate to RideRequestsActivity
-            Toast.makeText(DriverDashboardActivity.this, "View Requests clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DriverDashboardActivity.this, RideRequestsActivity.class);
+            startActivity(intent);
         });
     }
 }

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     // Utiliser 10.0.2.2 pour accéder à localhost depuis l'émulateur Android
-    public static final String BASE_URL = "http://192.168.1.7:8081/COVOITURAGE/backend/api/";
+    public static final String BASE_URL = "http://10.26.13.114:8081/covoiturage/backend/api/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

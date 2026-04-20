@@ -11,8 +11,8 @@ include_once '../config/db.php';
 // Récupération des données
 $data = json_decode(file_get_contents("php://input"));
 
-if (isset($data->user_id)) {
-    $user_id = $data->user_id;
+if (isset($data->user_name)) {
+    $user_name = $data->user_name;
     $type = $data->type;
     $depart = $data->depart;
     $arrivee = $data->arrivee;
@@ -21,8 +21,8 @@ if (isset($data->user_id)) {
     $places = isset($data->places) ? $data->places : 1;
     $contact = $data->contact;
     $description = isset($data->description) ? $data->description : "";
-} else if (isset($_POST['user_id'])) {
-    $user_id = $_POST['user_id'];
+} else if (isset($_POST['user_name'])) {
+    $user_name = $_POST['user_name'];
     $type = $_POST['type'];
     $depart = $_POST['depart'];
     $arrivee = $_POST['arrivee'];
@@ -36,11 +36,11 @@ if (isset($data->user_id)) {
     exit;
 }
 
-if (!empty($user_id) && !empty($depart) && !empty($arrivee) && !empty($date_heure) && !empty($contact)) {
+if (!empty($user_name) && !empty($depart) && !empty($arrivee) && !empty($date_heure) && !empty($contact)) {
     
     // Préparation de l'insertion
-    $query = "INSERT INTO posts (user_id, type, depart, arrivee, date_heure, prix, places, contact, description) 
-              VALUES (:user_id, :type, :depart, :arrivee, :date_heure, :prix, :places, :contact, :description)";
+    $query = "INSERT INTO posts (user_name, type, depart, arrivee, date_heure, prix, places, contact, description) 
+              VALUES (:user_name, :type, :depart, :arrivee, :date_heure, :prix, :places, :contact, :description)";
     
     $stmt = $conn->prepare($query);
 
@@ -52,7 +52,7 @@ if (!empty($user_id) && !empty($depart) && !empty($arrivee) && !empty($date_heur
     $contact = htmlspecialchars(strip_tags($contact));
     $description = htmlspecialchars(strip_tags($description));
 
-    $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":user_name", $user_name);
     $stmt->bindParam(":type", $type);
     $stmt->bindParam(":depart", $depart);
     $stmt->bindParam(":arrivee", $arrivee);
@@ -70,7 +70,7 @@ if (!empty($user_id) && !empty($depart) && !empty($arrivee) && !empty($date_heur
     }
 } else {
     echo json_encode(array("success" => false, "message" => "Veuillez remplir tous les champs obligatoires. Champs manquants: " . 
-        (empty($user_id) ? "user_id " : "") . 
+        (empty($user_name) ? "user_name " : "") . 
         (empty($depart) ? "depart " : "") . 
         (empty($arrivee) ? "arrivee " : "") . 
         (empty($date_heure) ? "date_heure " : "") . 
