@@ -41,10 +41,39 @@ public class RideRequestsActivity extends AppCompatActivity {
         rvBookings = findViewById(R.id.rvBookings);
         rvBookings.setLayoutManager(new LinearLayoutManager(this));
         
-        bookingAdapter = new BookingAdapter(bookingList);
+        bookingAdapter = new BookingAdapter(bookingList, new BookingAdapter.OnBookingActionListener() {
+            @Override
+            public void onAccept(Booking booking) {
+                respondToBooking(booking, "accepted");
+            }
+
+            @Override
+            public void onReject(Booking booking) {
+                respondToBooking(booking, "rejected");
+            }
+        });
         rvBookings.setAdapter(bookingAdapter);
 
         loadBookings();
+    }
+
+    private void respondToBooking(Booking booking, String action) {
+        apiService.respondToBooking(booking.getId(), action).enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Toast.makeText(RideRequestsActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    loadBookings(); // Reload list to show updated status
+                } else {
+                    Toast.makeText(RideRequestsActivity.this, "Erreur lors de la réponse.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Toast.makeText(RideRequestsActivity.this, "Erreur réseau: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void loadBookings() {

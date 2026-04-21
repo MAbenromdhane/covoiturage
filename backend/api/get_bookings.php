@@ -17,7 +17,7 @@ if (empty($driver_name)) {
 
 try {
     // Sélectionner les réservations pour les trajets créés par ce conducteur
-    $query = "SELECT b.*, p.depart, p.arrivee, p.date_heure 
+    $query = "SELECT b.id, b.ride_id, b.passenger_name, b.passenger_phone, b.status, b.created_at, p.depart, p.arrivee, p.date_heure 
               FROM bookings b 
               JOIN posts p ON b.ride_id = p.id 
               WHERE p.user_name = :driver_name 

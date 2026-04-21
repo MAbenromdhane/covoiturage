@@ -61,6 +61,13 @@ public interface ApiService {
         @Query("driver_name") String driverName
     );
 
+    @FormUrlEncoded
+    @POST("respond_booking.php")
+    Call<ApiResponse> respondToBooking(
+        @Field("booking_id") int bookingId,
+        @Field("action") String action
+    );
+
     // Les autres appels seront ajoutés ici
 
 

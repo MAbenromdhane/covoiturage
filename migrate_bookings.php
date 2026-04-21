@@ -1,17 +1,14 @@
 <?php
 include_once 'backend/config/db.php';
 try {
-    $sql = "CREATE TABLE IF NOT EXISTS bookings (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        ride_id INT NOT NULL,
-        passenger_name VARCHAR(100) NOT NULL,
-        status ENUM('en_attente', 'confirme', 'annule') NOT NULL DEFAULT 'en_attente',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (ride_id) REFERENCES posts(id) ON DELETE CASCADE
-    )";
-    $conn->exec($sql);
-    echo "Table 'bookings' créée avec succès !";
+    // Add status column to bookings if it doesn't exist
+    $conn->exec("ALTER TABLE bookings ADD COLUMN status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending' AFTER passenger_phone");
+    echo "Colonne 'status' ajoutée à la table 'bookings' avec succès !\n";
 } catch (Exception $e) {
-    echo "Erreur: " . $e->getMessage();
+    if (strpos($e->getMessage(), "Duplicate column name") !== false) {
+        echo "La colonne 'status' existe déjà dans 'bookings'.\n";
+    } else {
+        echo "Erreur bookings: " . $e->getMessage() . "\n";
+    }
 }
 ?>
